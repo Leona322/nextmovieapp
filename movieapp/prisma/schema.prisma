@@ -8,8 +8,47 @@ datasource db {
 }
 
 model Favourite {
-  id           Int    @id @default(autoincrement())
-  title        String
-  url          String
-  release_date String
+  id                Int      @id @default(autoincrement())
+  // TMDB Fields to match your EndpointProps
+  adult             Boolean  @default(false)
+  backdrop_path     String?
+  genre_ids         String?   // Store as JSON string since Prisma doesn't have array of numbers
+  tmdb_id           Int      @unique  // This is the 'id' from TMDB
+  original_language String?
+  original_title    String?
+  overview          String?
+  popularity        Float?
+  poster_path       String?
+  release_date      String?
+  title             String
+  video             Boolean  @default(false)
+  vote_average      Float?
+  vote_count        Int?
+  
+  // Timestamps
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("favourites")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String?
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Your movie relations
+  favorites Favorite[]
+}
+
+model Favorite {
+  id     String @id @default(cuid())
+  userId String
+  movieId String
+  // Add other movie fields you need
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
