@@ -71,12 +71,27 @@ export async function removeFavourite(tmdbId: number) {
 
 // ✅ Fetch all favourites
 // In your getFavourites function in data/action.ts
+// ✅ Fetch all favourites
 export async function getFavourites(): Promise<EndpointProps[]> {
   try {
-    const favourites = await db.favourite.findMany();
-    
-    // Return complete EndpointProps with all required fields
-    const mappedFavourites = favourites.map(fav => ({
+    const favourites = await db.favourite.findMany()
+
+    // Define a local type for safety
+    type Favourite = {
+      tmdb_id: number
+      title: string
+      poster_path: string | null
+      backdrop_path: string | null
+      release_date?: string | null
+      vote_average?: number | null
+      overview?: string | null
+      genre_ids?: string | null
+      createdAt?: Date
+      updatedAt?: Date
+    }
+
+    // ✅ Explicitly type "fav" to fix TS error
+    const mappedFavourites = favourites.map((fav: Favourite) => ({
       id: fav.tmdb_id,
       title: fav.title,
       poster_path: fav.poster_path,
@@ -84,25 +99,24 @@ export async function getFavourites(): Promise<EndpointProps[]> {
       release_date: fav.release_date || "",
       vote_average: fav.vote_average || 0,
       overview: fav.overview || "",
-      genre_ids: fav.genre_ids ? JSON.parse(fav.genre_ids) as number[] : [],
-      
-      // Add all the missing required fields with default values
-      adult: false, // Default value
-      original_language: "en", // Default value
-      original_title: fav.title, // Use title as fallback
-      popularity: 0, // Default value
-      video: false, // Default value
-      vote_count: 0, // Default value
-      createdAt: fav.createdAt || new Date(), // Use DB date or current
-      updatedAt: fav.updatedAt || new Date() // Use DB date or current
-    }));
+      genre_ids: fav.genre_ids ? (JSON.parse(fav.genre_ids) as number[]) : [],
 
-    console.log(`✅ Successfully fetched ${mappedFavourites.length} favourites with complete data`);
-    return mappedFavourites;
-    
+      // Default values for missing fields
+      adult: false,
+      original_language: "en",
+      original_title: fav.title,
+      popularity: 0,
+      video: false,
+      vote_count: 0,
+      createdAt: fav.createdAt || new Date(),
+      updatedAt: fav.updatedAt || new Date(),
+    }))
+
+    console.log(`✅ Successfully fetched ${mappedFavourites.length} favourites`)
+    return mappedFavourites
   } catch (error) {
-    console.error("❌ Error fetching favourites:", error);
-    return [];
+    console.error("❌ Error fetching favourites:", error)
+    return []
   }
 }
 
