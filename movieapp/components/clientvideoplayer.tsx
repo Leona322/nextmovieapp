@@ -46,27 +46,27 @@ export default function ClientVideoPlayer({ movieId, movieTitle }: ClientVideoPl
 
   if (activeSolution === 'external') {
     return (
-      <div className="min-h-screen bg-gray-900 text-white p-4">
+      <div className="min-h-screen bg-gray-900 text-white p-4 sm:p-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">{movieTitle}</h1>
-            <p className="text-gray-400">Streaming Options</p>
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-2">{movieTitle}</h1>
+            <p className="text-gray-400 text-sm sm:text-base">Streaming Options</p>
           </div>
 
-          <div className="bg-gray-800 rounded-lg p-6 mb-6">
-            <h2 className="text-xl font-semibold mb-4 text-center">
+          <div className="bg-gray-800 rounded-lg p-4 sm:p-6 mb-6">
+            <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-center">
               🔍 Search on Streaming Platforms
             </h2>
-            <p className="text-gray-300 text-center mb-6">
+            <p className="text-gray-300 text-center mb-4 sm:mb-6 text-sm sm:text-base">
               Embed sources are currently unavailable. Search for this movie on popular streaming platforms:
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               {streamingOptions.external.map((source, index) => (
                 <button
                   key={index}
                   onClick={() => openExternalLink(source.url)}
-                  className="p-4 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors text-white font-semibold"
+                  className="p-3 sm:p-4 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors text-white font-semibold text-sm sm:text-base"
                 >
                   {source.name}
                 </button>
@@ -77,7 +77,7 @@ export default function ClientVideoPlayer({ movieId, movieTitle }: ClientVideoPl
           <div className="text-center">
             <button
               onClick={() => setActiveSolution('embeds')}
-              className="px-6 py-3 bg-gray-600 hover:bg-gray-700 rounded-lg transition-colors"
+              className="px-4 py-2 sm:px-6 sm:py-3 bg-gray-600 hover:bg-gray-700 rounded-lg transition-colors text-sm sm:text-base"
             >
               ← Try Embed Sources Again
             </button>
@@ -88,33 +88,33 @@ export default function ClientVideoPlayer({ movieId, movieTitle }: ClientVideoPl
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-4">
+    <div className="min-h-screen bg-gray-900 text-white p-4 sm:p-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-6">
-          <h1 className="text-3xl font-bold mb-2">{movieTitle}</h1>
-          <p className="text-gray-400">Now Playing</p>
+        <div className="text-center mb-4 sm:mb-6">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2">{movieTitle}</h1>
+          <p className="text-gray-400 text-sm sm:text-base">Now Playing</p>
         </div>
 
         {/* Main Video Area */}
-        <div className="bg-black rounded-lg shadow-2xl overflow-hidden mb-6 h-[500px] lg:h-[600px] flex items-center justify-center">
-          <div className="text-center p-8">
-            <div className="text-6xl mb-4">🎬</div>
-            <h2 className="text-2xl font-bold mb-4">Stream Not Available</h2>
-            <p className="text-gray-300 mb-6 max-w-md mx-auto">
+        <div className="bg-black rounded-lg shadow-2xl overflow-hidden mb-4 sm:mb-6 h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] flex items-center justify-center">
+          <div className="text-center p-4 sm:p-8">
+            <div className="text-4xl sm:text-6xl mb-3 sm:mb-4">🎬</div>
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Stream Not Available</h2>
+            <p className="text-gray-300 mb-4 sm:mb-6 max-w-md mx-auto text-sm sm:text-base">
               The embedded stream is not currently available. This could be due to regional restrictions, server issues, or the movie not being available on these platforms.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <button
                 onClick={() => setActiveSolution('external')}
-                className="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg font-semibold transition-colors"
+                className="px-4 py-2 sm:px-6 sm:py-3 bg-red-600 hover:bg-red-700 rounded-lg font-semibold transition-colors text-sm sm:text-base"
               >
                 🔍 Search Streaming Sites
               </button>
               
               <button
                 onClick={() => window.location.reload()}
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors"
+                className="px-4 py-2 sm:px-6 sm:py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors text-sm sm:text-base"
               >
                 🔄 Retry Embedded Sources
               </button>
@@ -123,10 +123,10 @@ export default function ClientVideoPlayer({ movieId, movieTitle }: ClientVideoPl
         </div>
 
         {/* Alternative Options */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-800 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-4">🎯 Try These Alternatives</h3>
-            <ul className="space-y-3 text-gray-300">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+          <div className="bg-gray-800 rounded-lg p-4 sm:p-6">
+            <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">🎯 Try These Alternatives</h3>
+            <ul className="space-y-2 sm:space-y-3 text-gray-300 text-sm sm:text-base">
               <li>• Check if the movie is available on Netflix, Amazon Prime, or Disney+</li>
               <li>• Search for the movie on YouTube for official trailers or rentals</li>
               <li>• Visit JustWatch to see which platforms stream this movie</li>
@@ -134,9 +134,9 @@ export default function ClientVideoPlayer({ movieId, movieTitle }: ClientVideoPl
             </ul>
           </div>
 
-          <div className="bg-gray-800 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-4">ℹ️ Why This Happens</h3>
-            <ul className="space-y-2 text-gray-300 text-sm">
+          <div className="bg-gray-800 rounded-lg p-4 sm:p-6">
+            <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">ℹ️ Why This Happens</h3>
+            <ul className="space-y-1 sm:space-y-2 text-gray-300 text-xs sm:text-sm">
               <li>• Regional licensing restrictions</li>
               <li>• Source servers may be temporarily down</li>
               <li>• Movie might not be available on free platforms</li>
