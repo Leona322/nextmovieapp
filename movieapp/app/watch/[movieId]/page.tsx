@@ -35,7 +35,7 @@ export default async function WatchPage({ params }: WatchPageProps) {
         {/* Desktop Back Button */}
         <div className="hidden sm:block fixed top-6 left-6 z-50">
           <Link 
-            href={`/movie/${movieId}`}
+            href={`/movies`}
             className="flex items-center gap-2 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-black/90 transition-all duration-300"
           >
             <ArrowLeft className="w-4 h-4" />
