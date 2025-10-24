@@ -43,17 +43,7 @@ export default async function WatchPage({ params }: WatchPageProps) {
           </Link>
         </div>
 
-        {/* Movie Info Banner - Mobile Only */}
-        <div className="sm:hidden bg-gray-800/90 backdrop-blur-sm border-b border-gray-700 p-4 pt-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-lg font-bold text-white line-clamp-1">
-              {movie.title}
-            </h1>
-            <p className="text-gray-400 text-sm mt-1">
-              Now Playing
-            </p>
-          </div>
-        </div>
+
 
         <ClientVideoPlayer movieId={movieId} movieTitle={movie.title} />
       </div>

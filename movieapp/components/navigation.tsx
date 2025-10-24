@@ -49,7 +49,7 @@ const Navigation = () => {
             </Link>
 
             {/* Desktop Navigation Items */}
-            <div className="hidden md:flex gap-1 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-1 border border-white/10">
+            <div className="hidden md:flex gap-1 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-1 mr-20 border border-white/10">
               {navItems.map(({ href, label, icon: Icon }) => {
                 const isActive = pathname === href;
                 return (

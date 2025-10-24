@@ -109,9 +109,13 @@ export default function ClientVideoPlayer({
   return (
     <div className="min-h-screen bg-gray-900 text-white p-4 sm:p-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-4 sm:mb-6">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-2">{movieTitle}</h1>
-          <p className="text-gray-400 text-sm sm:text-base">Now Playing</p>
+        <div className="text-center mb-4 sm:mb-6 pt-20 sm:pt-24 md:pt-28">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 text-white">
+            {movieTitle}
+          </h1>
+          <p className="text-gray-400 text-sm sm:text-base lg:text-lg">
+            Now Playing
+          </p>
         </div>
 
         {/* Main Video Area */}
