@@ -24,7 +24,7 @@ export default async function WatchPage({ params }: WatchPageProps) {
         {/* Mobile Back Button */}
         <div className="fixed top-4 left-4 z-50 sm:hidden">
           <Link 
-            href={`/movie/${movieId}`}
+            href={`/movies`}
             className="flex items-center gap-2 bg-black/80 backdrop-blur-sm text-white px-3 py-2 rounded-lg hover:bg-black transition-all duration-300"
           >
             <ArrowLeft className="w-4 h-4" />
