@@ -34,11 +34,11 @@ export default function Home() {
           </h1>
           
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4">
-            Discover, explore, and curate your personal collection of amazing movies with stunning visuals and seamless experience.
+            Discover and explore the community collection of amazing movies with stunning visuals and seamless experience.
           </p>
 
           {/* Feature Highlights */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12 max-w-4xl mx-auto px-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12 max-w-4xl mx-auto px-2">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 hover:border-purple-400/50 transition-all duration-300">
               <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400 mx-auto mb-2 sm:mb-3" />
               <h3 className="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-base">Trending Movies</h3>
@@ -48,13 +48,7 @@ export default function Home() {
             <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 hover:border-blue-400/50 transition-all duration-300">
               <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-red-400 mx-auto mb-2 sm:mb-3" />
               <h3 className="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-base">Save Favourites</h3>
-              <p className="text-gray-400 text-xs sm:text-sm">Build your personal collection</p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 hover:border-green-400/50 transition-all duration-300">
-              <Play className="w-6 h-6 sm:w-8 sm:h-8 text-green-400 mx-auto mb-2 sm:mb-3" />
-              <h3 className="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-base">Watch Trailers</h3>
-              <p className="text-gray-400 text-xs sm:text-sm">Preview before you watch</p>
+              <p className="text-gray-400 text-xs sm:text-sm">Build Community Favourite collection</p>
             </div>
           </div>
 
@@ -74,7 +68,7 @@ export default function Home() {
               className="group w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-gray-800/50 backdrop-blur-sm text-white rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg border border-white/20 hover:border-purple-400/50 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3"
             >
               <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-red-400" />
-              View Favourites
+              View Community Favourites
             </Link>
           </div>
 

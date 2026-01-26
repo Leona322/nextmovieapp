@@ -9,7 +9,11 @@ import Link from "next/link"
 export default function FavouritesPage() {
   const [favourites, setFavourites] = useState<EndpointProps[]>([])
   const [isLoading, setIsLoading] = useState(true)
+   
+  console.log('Env variables:', process.env);
 
+// For client-side, check public variables
+console.log('Public env:', process.env.NEXT_PUBLIC_TMDB_API_KEY);
   // Load favourites
   useEffect(() => {
     const loadFavourites = async () => {
@@ -41,7 +45,7 @@ export default function FavouritesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col items-center justify-center py-8 sm:py-16">
             <div className="w-12 h-12 sm:w-16 sm:h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mb-3 sm:mb-4"></div>
-            <div className="text-lg sm:text-xl text-white font-semibold text-center">Loading your favourites...</div>
+            <div className="text-lg sm:text-xl text-white font-semibold text-center">Loading favourites...</div>
           </div>
         </div>
       </div>
@@ -53,11 +57,11 @@ export default function FavouritesPage() {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-6 sm:mb-8">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">Your Favourites</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">Favourites</h1>
           <p className="text-gray-300 text-sm sm:text-base md:text-lg px-2">
             {favourites.length === 0 
-              ? "Your curated collection of loved movies"
-              : `You have ${favourites.length} favourite movie${favourites.length !== 1 ? 's' : ''}`
+              ? "The curated collection of loved movies"
+              : `There are ${favourites.length} favourite movie${favourites.length !== 1 ? 's' : ''}`
             }
           </p>
         </div>
@@ -70,7 +74,7 @@ export default function FavouritesPage() {
               No favourites yet
             </h2>
             <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-md mx-auto mb-6 sm:mb-8 px-4">
-              You haven't added any movies to your favourites. Start exploring and
+              no movies has been added to favourites. Start exploring and
               add some movies you love!
             </p>
             <Link 
@@ -183,5 +187,8 @@ export default function FavouritesPage() {
         )}
       </div>
     </div>
+
+    // In a server component or API route
+
   )
 }

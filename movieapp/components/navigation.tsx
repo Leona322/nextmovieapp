@@ -20,7 +20,7 @@ const Navigation = () => {
   const navItems = [
     { href: "/", label: "Home", icon: Home },
     { href: "/movies", label: "Movies", icon: Film },
-    { href: "/favourites", label: "Favourites", icon: Heart },
+    { href: "/favourites", label: "Community Favourites", icon: Heart },
   ];
 
   return (
@@ -92,9 +92,7 @@ const Navigation = () => {
 
             {/* Desktop User Actions */}
             <div className="hidden md:flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
-                U
-              </div>
+              
             </div>
           </div>
 
@@ -133,14 +131,7 @@ const Navigation = () => {
               </div>
 
               {/* Mobile User Action */}
-              <div className="border-t border-white/10 mt-2 pt-3 pb-2 px-4">
-                <div className="flex items-center gap-3 text-gray-400">
-                  <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
-                    U
-                  </div>
-                  <span className="text-sm">User Profile</span>
-                </div>
-              </div>
+             
             </div>
           )}
         </div>
